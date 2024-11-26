@@ -75,6 +75,17 @@ textarea {
 form label {
   color: var(--darkpink);
 }
+.date-and-author-container {
+  display: flex;
+  gap: 40px;
+}
+.new-author label {
+  display: block;
+}
+.initial-input {
+  width: 4rem;
+}
+
 .add-task-button {
   padding: 0.5rem 2rem;
   border: none;
@@ -108,25 +119,40 @@ form label {
   color: var(--darkpink);
   font-size: 1rem;
   margin-bottom: 0.5rem;
+  cursor: pointer;
 }
 .todo-description {
   color: dimgray;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  margin-block: 1rem;
+  cursor: pointer;
 }
 .todo-footer {
-  border-top: solid 1px var(--darkpink);
   display: flex;
   justify-content: space-between;
-  padding-top: 0.5rem;
+  align-items: end;
 }
 .todo-date {
   color: var(--darkpink);
+  font-size: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: solid 1px var(--darkpink);
 }
 .todo-actions span {
   margin-left: 0.5rem;
   color: var(--darkpink);
   cursor: pointer;
+}
+.author {
+  background-color: lightblue;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .size-18 {
   font-size: 18px;
@@ -135,10 +161,9 @@ form label {
 .done-marker {
   font-size: 24px;
   font-variation-settings: "OPSZ" 24;
+  color: lightgray;
+  cursor: pointer;
 }
 .active {
   color: var(--darkpink);
-}
-.inactive {
-  color: lightgray;
 }
