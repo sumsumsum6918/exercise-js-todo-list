@@ -4,9 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add,delete,done_all,edit"
+    />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <header>
+      <h1>My todo list</h1>
+      <button class="new-task-button">
+        <span class="material-symbols-outlined size-32"> add </span>
+      </button>
+    </header>
+    <div class="new-task-container">
+      <form class="new-task-form">
+        <p>Add New task</p>
+        <label for="task-title"> Task Title</label>
+        <input
+          type="text"
+          name="task-title"
+          id="task-title"
+          placeholder="Add Task Name..."
+        />
+        <label for="task-description">Description</label>
+        <textarea
+          type="text"
+          name="task-description"
+          id="task-description"
+          placeholder="Add Descriptions..."
+        ></textarea>
+        <label for="task-date">Date & Time</label>
+        <input type="datetime-local" name="task-date" id="task-date" />
+        <button class="add-task-button" type="submit">Add</button>
+      </form>
+    </div>
+
+    <div class="todo-list-container">
+      <div class="todo-container">
+        <div class="todo-header">
+          <h3 class="todo-title">Feed Pokemon</h3>
+          <div class="todo-actions">
+            <span class="size-18 material-symbols-outlined"> edit </span>
+            <span class="size-18 material-symbols-outlined"> delete </span>
+          </div>
+        </div>
+        <p class="todo-description">Make breakfast</p>
+        <div class="todo-footer">
+          <p class="todo-date">02 Dec 10:00</p>
+          <span class="done-marker material-symbols-outlined"> done_all </span>
+        </div>
+      </div>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

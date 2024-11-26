@@ -1,0 +1,144 @@
+:root {
+  --pink: rgb(255, 226, 241);
+  --darkpink: #93607b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+body {
+  background-color: var(--pink);
+}
+header {
+  background-color: var(--darkpink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4rem 2rem 3rem;
+  margin-bottom: 1.5rem;
+}
+h1 {
+  color: white;
+}
+.new-task-button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+.size-32 {
+  font-size: 2rem;
+  font-variation-settings: "OPSZ" 32;
+}
+
+.new-task-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.new-task-form {
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: -5px 5px 2px rgb(0, 0, 0, 0.2);
+  width: 50%;
+}
+.new-task-container p {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--darkpink);
+  font-weight: 700;
+}
+form input,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  background-color: var(--pink);
+  border-radius: 4px;
+}
+textarea {
+  resize: none;
+}
+#task-date {
+  display: block;
+  width: auto;
+}
+form label {
+  color: var(--darkpink);
+}
+.add-task-button {
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background-color: var(--darkpink);
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+
+.todo-list-container {
+  padding: 0px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.todo-container {
+  min-width: 250px;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: -4px 4px 1px rgb(0, 0, 0, 0.2);
+}
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+}
+.todo-title {
+  color: var(--darkpink);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.todo-description {
+  color: dimgray;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.todo-footer {
+  border-top: solid 1px var(--darkpink);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+}
+.todo-date {
+  color: var(--darkpink);
+}
+.todo-actions span {
+  margin-left: 0.5rem;
+  color: var(--darkpink);
+  cursor: pointer;
+}
+.size-18 {
+  font-size: 18px;
+  font-variation-settings: "OPSZ" 18;
+}
+.done-marker {
+  font-size: 24px;
+  font-variation-settings: "OPSZ" 24;
+}
+.active {
+  color: var(--darkpink);
+}
+.inactive {
+  color: lightgray;
+}
