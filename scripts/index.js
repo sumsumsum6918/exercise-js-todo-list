@@ -1,4 +1,4 @@
-import { todoList, saveTodoToStorage } from "./list.js";
+import { todoList, saveTodoToStorage, removeInProgress } from "./list.js";
 //localStorage.clear();
 const newTaskForm = document.querySelector(".new-task-form");
 
@@ -46,7 +46,7 @@ function renderInProgressGrid() {
             <h3 class="todo-title">${task.title}</h3>
             <div class="todo-actions">
               <span class="size-18 material-symbols-outlined"> edit </span>
-              <span class="size-18 material-symbols-outlined"> delete </span>
+              <span class="size-18 material-symbols-outlined js-delete" data-id="${task.id}"> delete </span>
               <span class="size-18 material-symbols-outlined">
                 drag_indicator
               </span>
@@ -68,4 +68,12 @@ function renderInProgressGrid() {
   });
 
   document.querySelector(".js-in-progress-grid").innerHTML = inProgressHTML;
+
+  document.querySelectorAll(".js-delete").forEach((button) => {
+    button.addEventListener("click", () => {
+      const { id } = button.dataset;
+      removeInProgress(id);
+      renderInProgressGrid();
+    });
+  });
 }

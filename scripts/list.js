@@ -1,4 +1,4 @@
-export const todoList = JSON.parse(localStorage.getItem("todoList")) || [
+export let todoList = JSON.parse(localStorage.getItem("todoList")) || [
   {
     id: "702cfb8f-fb84-4605-91c4-4f4746e1ce6e",
     title: "make dinner",
@@ -24,4 +24,16 @@ export const todoList = JSON.parse(localStorage.getItem("todoList")) || [
 
 export function saveTodoToStorage() {
   localStorage.setItem("todoList", JSON.stringify(todoList));
+}
+
+export function removeInProgress(id) {
+  todoList = todoList.filter((task) => task.id !== id);
+  saveTodoToStorage();
+}
+export function updateHeaderQuantity(section) {
+  if (section === "in-progress") {
+    const element = document.getElementById("in-progress-quantity");
+  } else if (section === "completed") {
+    const element = document.getElementById("completed-quantity");
+  } else return "quantity";
 }
