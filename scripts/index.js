@@ -1,5 +1,5 @@
-import { todoList, saveToStorage } from "./list.js";
-
+import { todoList, saveTodoToStorage } from "./list.js";
+//localStorage.clear();
 const newTaskForm = document.querySelector(".new-task-form");
 
 function addNewTask() {
@@ -13,15 +13,17 @@ function addNewTask() {
 
   const newTask = {
     id: newUUID,
-    name: titleInputElement,
+    title: titleInputElement,
     description: descriptionInputElement,
     dueDate: dateTimeElement,
-    author: initialsInputElement,
+    author: initialsInputElement.toUpperCase(),
   };
 
   todoList.push(newTask);
-  saveToStorage();
+  saveTodoToStorage();
   console.log(todoList);
+
+  renderInProgressGrid();
 }
 
 newTaskForm.addEventListener("submit", (event) => {
@@ -35,10 +37,13 @@ function renderInProgressGrid() {
   let inProgressHTML = "";
 
   todoList.forEach((task) => {
+    const dueDate = dayjs(task.dueDate).format("dddd, DD MMM YYYY HH:mm");
+
     inProgressHTML += `
       <div class="todo-container">
-          <div class="todo-header">
-            <h3 class="todo-title">Feed Pokemon</h3>
+        <div class="todo-header">
+          <div class="todo-info">
+            <h3 class="todo-title">${task.title}</h3>
             <div class="todo-actions">
               <span class="size-18 material-symbols-outlined"> edit </span>
               <span class="size-18 material-symbols-outlined"> delete </span>
@@ -47,17 +52,18 @@ function renderInProgressGrid() {
               </span>
             </div>
           </div>
-          <p class="todo-date">Saturday, 02 December 10:00</p>
-          <p class="todo-description">Make breakfast</p>
+          <p class="todo-date">${dueDate}</p>
+          <p class="todo-description">${task.description}</p>
+        </div>
           <div class="todo-footer">
             <div class="author-container">
-              <div class="author">SF</div>
+              <div class="author">${task.author}</div>
             </div>
             <span class="done-marker material-symbols-outlined">
               done_all
             </span>
           </div>
-        </div>
+      </div>
     `;
   });
 
