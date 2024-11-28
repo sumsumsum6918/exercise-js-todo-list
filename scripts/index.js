@@ -48,7 +48,7 @@ function renderInProgressGrid() {
     const dueDate = dayjs(task.dueDate).format("dddd, DD MMM YYYY HH:mm");
 
     inProgressHTML += `
-      <div class="todo-container">
+      <div class="todo-container ${task.star ? "stared-container" : ""}">
         <div class="todo-header">
           <div class="todo-info">
             <h3 class="todo-title">${task.title}</h3>

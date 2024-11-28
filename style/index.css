@@ -32,6 +32,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+.stared-container {
+  border: solid 4px rgba(147, 96, 123, 0.8);
+}
 .todo-info {
   display: flex;
   justify-content: space-between;
