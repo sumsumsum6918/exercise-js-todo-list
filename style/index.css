@@ -63,6 +63,9 @@ body {
   margin-left: 0.5rem;
   cursor: pointer;
 }
+.star-button {
+  color: lightgray;
+}
 .author {
   background-color: lightblue;
   width: 40px;
