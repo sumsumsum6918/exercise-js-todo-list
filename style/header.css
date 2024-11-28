@@ -1,0 +1,87 @@
+:root {
+  --pink: rgb(255, 226, 241);
+  --darkpink: #93607b;
+}
+
+header {
+  background-color: var(--darkpink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4rem 2rem 3rem;
+  margin-bottom: 1.5rem;
+}
+h1 {
+  color: white;
+}
+.new-task-button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+.size-32 {
+  font-size: 2rem;
+  font-variation-settings: "OPSZ" 32;
+}
+
+.new-task-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.new-task-form {
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: -5px 5px 2px rgb(0, 0, 0, 0.2);
+  width: 50%;
+}
+.new-task-container p {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+form input,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  background-color: var(--pink);
+  border-radius: 4px;
+}
+textarea {
+  resize: none;
+}
+#task-date {
+  display: block;
+  width: auto;
+}
+
+.date-and-author-container {
+  display: flex;
+  gap: 40px;
+}
+.new-author label {
+  display: block;
+}
+.initial-input {
+  width: 4rem;
+}
+
+.add-task-button {
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  background-color: var(--darkpink);
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}

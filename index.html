@@ -15,7 +15,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add,delete,done_all,drag_indicator,edit"
     />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/index.css" />
   </head>
   <body>
     <header>
@@ -61,28 +62,63 @@
       </form>
     </div>
 
-    <div class="todo-list-container">
-      <div class="todo-container">
-        <div class="todo-header">
-          <h3 class="todo-title">Feed Pokemon</h3>
-          <div class="todo-actions">
-            <span class="size-18 material-symbols-outlined"> edit </span>
-            <span class="size-18 material-symbols-outlined"> delete </span>
-            <span class="size-18 material-symbols-outlined">
-              drag_indicator
+    <section class="on-progress-container">
+      <div class="section-header-container">
+        <p class="on-progress-title">
+          On Progess (<span id="on-progress-amount">10</span>)
+        </p>
+        <div class="sort-container">
+          <select name="sort" id="on-progress-sort">
+            <option class="disable" value="">Sort By</option>
+            <option value="date">Due Date</option>
+            <option value="author">Author</option>
+            <option value="title">Task Title</option>
+          </select>
+        </div>
+      </div>
+      <div class="todo-list-grid">
+        <div class="todo-container">
+          <div class="todo-header">
+            <h3 class="todo-title">Feed Pokemon</h3>
+            <div class="todo-actions">
+              <span class="size-18 material-symbols-outlined"> edit </span>
+              <span class="size-18 material-symbols-outlined"> delete </span>
+              <span class="size-18 material-symbols-outlined">
+                drag_indicator
+              </span>
+            </div>
+          </div>
+          <p class="todo-date">Saturday, 02 December 10:00</p>
+          <p class="todo-description">Make breakfast</p>
+          <div class="todo-footer">
+            <div class="author-container">
+              <div class="author">SF</div>
+            </div>
+            <span class="done-marker material-symbols-outlined">
+              done_all
             </span>
           </div>
         </div>
-        <p class="todo-date">Saturday, 02 December 10:00</p>
-        <p class="todo-description">Make breakfast</p>
-        <div class="todo-footer">
-          <div class="author-container">
-            <div class="author">SF</div>
-          </div>
-          <span class="done-marker material-symbols-outlined"> done_all </span>
+      </div>
+    </section>
+
+    <section class="completed-container">
+      <div class="section-header-container">
+        <p class="completed-title">
+          Completed (<span id="completed-amount">4</span>)
+        </p>
+        <div class="sort-container">
+          <select name="sort" id="completed-sort">
+            <option class="disable" value="">Sort By</option>
+            <option value="date">Due Date</option>
+            <option value="author">Author</option>
+            <option value="title">Task Title</option>
+          </select>
         </div>
       </div>
-    </div>
+      <div class="complete-grid"></div>
+    </section>
+
     <script src="index.js"></script>
   </body>
 </html>

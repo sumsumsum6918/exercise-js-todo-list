@@ -1,0 +1,107 @@
+:root {
+  --pink: rgb(255, 226, 241);
+  --darkpink: #93607b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--darkpink);
+}
+body {
+  background-color: var(--pink);
+}
+
+.todo-list-grid {
+  padding: 0px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.todo-container {
+  min-width: 250px;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: -4px 4px 1px rgb(0, 0, 0, 0.2);
+}
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+}
+.todo-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.todo-description {
+  color: dimgray;
+  font-size: 0.8rem;
+  margin-block: 1rem;
+  cursor: pointer;
+}
+.todo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.todo-date {
+  font-size: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: solid 1px var(--darkpink);
+}
+.todo-actions span {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+.author {
+  background-color: lightblue;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.size-18 {
+  font-size: 18px;
+  font-variation-settings: "OPSZ" 18;
+}
+.done-marker {
+  font-size: 24px;
+  font-variation-settings: "OPSZ" 24;
+  color: lightgray;
+  cursor: pointer;
+}
+.active {
+  color: var(--darkpink);
+}
+.section-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  margin: 0 24px 16px 24px;
+  border-bottom: solid 1px var(--darkpink);
+}
+.section-header-container p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+select {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+option {
+  cursor: pointer;
+}
+.disable {
+  font-weight: 500;
+}
