@@ -66,6 +66,9 @@ body {
 .star-button {
   color: lightgray;
 }
+.stared-star {
+  color: var(--darkpink);
+}
 .author {
   background-color: lightblue;
   width: 40px;
