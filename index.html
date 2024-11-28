@@ -30,6 +30,7 @@
         <p>Add New task</p>
         <label for="task-title"> Task Title</label>
         <input
+          required
           type="text"
           name="task-title"
           id="task-title"
@@ -62,13 +63,13 @@
       </form>
     </div>
 
-    <section class="on-progress-container">
+    <section class="in-progress-container">
       <div class="section-header-container">
-        <p class="on-progress-title">
-          On Progess (<span id="on-progress-amount">10</span>)
+        <p class="in-progress-title">
+          In Progess (<span id="in-progress-amount">10</span>)
         </p>
         <div class="sort-container">
-          <select name="sort" id="on-progress-sort">
+          <select name="sort" id="in-progress-sort">
             <option class="disable" value="">Sort By</option>
             <option value="date">Due Date</option>
             <option value="author">Author</option>
@@ -119,6 +120,6 @@
       <div class="complete-grid"></div>
     </section>
 
-    <script src="index.js"></script>
+    <script type="module" src="scripts/index.js"></script>
   </body>
 </html>

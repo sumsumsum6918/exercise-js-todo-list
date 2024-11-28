@@ -17,8 +17,10 @@ h1 {
 .new-task-button {
   border: none;
   background-color: transparent;
-  color: white;
   cursor: pointer;
+}
+.new-task-button span {
+  color: white;
 }
 .size-32 {
   font-size: 2rem;
@@ -81,6 +83,11 @@ textarea {
   color: white;
   background-color: var(--darkpink);
   cursor: pointer;
+}
+
+.add-task-button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
 }
 .hide {
   display: none;
