@@ -32,6 +32,29 @@ export function saveTodoToStorage() {
   localStorage.setItem("todoList", JSON.stringify(todoList));
 }
 
+export function addNewTask() {
+  const titleInputElement = document.getElementById("task-title").value;
+  const descriptionInputElement =
+    document.getElementById("task-description").value;
+  const dateTimeElement = document.getElementById("task-date").value;
+  const initialsInputElement = document.getElementById("task-author").value;
+
+  const newUUID = uuid.v4();
+
+  const newTask = {
+    id: newUUID,
+    title: titleInputElement,
+    description: descriptionInputElement,
+    dueDate: dateTimeElement,
+    author: initialsInputElement.toUpperCase(),
+    star: false,
+    complete: false,
+  };
+
+  todoList.push(newTask);
+  saveTodoToStorage();
+}
+
 export function removeInProgress(id) {
   todoList = todoList.filter((task) => task.id !== id);
   saveTodoToStorage();
