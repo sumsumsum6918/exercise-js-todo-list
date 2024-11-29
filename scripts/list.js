@@ -68,12 +68,12 @@ export function updateHeaderQuantity(section) {
 }
 export function toggleStaredTask(id) {
   const staredTask = todoList.find((task) => task.id === id);
-  if (!staredTask.star) {
-    staredTask.star = true;
-  } else if (staredTask.star) {
-    staredTask.star = false;
-  }
+  staredTask.star = !staredTask.star;
 
-  console.log(staredTask);
+  saveTodoToStorage();
+}
+export function toggleDoneTask(id) {
+  const doneTask = todoList.find((task) => task.id === id);
+  doneTask.complete = !doneTask.complete;
   saveTodoToStorage();
 }

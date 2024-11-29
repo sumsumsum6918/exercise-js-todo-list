@@ -3,6 +3,7 @@ import {
   addNewTask,
   removeInProgress,
   toggleStaredTask,
+  toggleDoneTask,
 } from "./list.js";
 import { formateDueDate } from "./utilities/dayformat.js";
 
@@ -50,7 +51,8 @@ function renderInProgressGrid() {
             <div class="author-container">
               <span class="author">${task.author}</span>
             </div>
-            <span class="done-marker js-done-marker material-symbols-outlined">
+            <span class="done-marker js-done-marker material-symbols-outlined" 
+            data-id="${task.id}">
               done_all
             </span>
           </div>
@@ -84,7 +86,8 @@ function renderInProgressGrid() {
             <div class="author-container">
               <span class="author">${task.author}</span>
             </div>
-            <span class="done-marker js-done-marker material-symbols-outlined active">
+            <span class="done-marker js-done-marker material-symbols-outlined active"
+            data-id="${task.id}">
               done_all
             </span>
           </div>
@@ -110,5 +113,11 @@ function renderInProgressGrid() {
     });
   });
 
-  document.querySelectorAll(".js-done-marker").forEach;
+  document.querySelectorAll(".js-done-marker").forEach((button) => {
+    button.addEventListener("click", () => {
+      const { id } = button.dataset;
+      toggleDoneTask(id);
+      renderInProgressGrid();
+    });
+  });
 }
