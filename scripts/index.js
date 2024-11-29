@@ -10,6 +10,13 @@ import {
 } from "./list.js";
 import { formateDueDate } from "./utilities/dayformat.js";
 
+const newTaskButton = document.querySelector(".js-new-task-button");
+const newTaskContainer = document.querySelector(".js-new-task-container");
+
+newTaskButton.addEventListener("click", () => {
+  newTaskContainer.classList.toggle("hide");
+});
+
 const newTaskForm = document.querySelector(".new-task-form");
 
 newTaskForm.addEventListener("submit", (event) => {
