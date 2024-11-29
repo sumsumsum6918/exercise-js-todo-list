@@ -59,12 +59,15 @@ export function removeInProgress(id) {
   todoList = todoList.filter((task) => task.id !== id);
   saveTodoToStorage();
 }
-export function updateHeaderQuantity(section) {
-  if (section === "in-progress") {
-    const element = document.getElementById("in-progress-quantity");
-  } else if (section === "completed") {
-    const element = document.getElementById("completed-quantity");
-  } else return "quantity";
+export function updateHeaderQuantity() {
+  const inProgressElement = document.getElementById("in-progress-quantity");
+  const completedElement = document.getElementById("completed-quantity");
+
+  let inProgressList = getInProgressList();
+  let completedList = getCompletedList();
+
+  inProgressElement.innerHTML = inProgressList.length;
+  completedElement.innerHTML = completedList.length;
 }
 export function toggleStaredTask(id) {
   const staredTask = todoList.find((task) => task.id === id);
@@ -76,4 +79,11 @@ export function toggleDoneTask(id) {
   const doneTask = todoList.find((task) => task.id === id);
   doneTask.complete = !doneTask.complete;
   saveTodoToStorage();
+}
+export function getInProgressList() {
+  return todoList.filter((task) => !task.complete);
+}
+
+export function getCompletedList() {
+  return todoList.filter((task) => task.complete);
 }

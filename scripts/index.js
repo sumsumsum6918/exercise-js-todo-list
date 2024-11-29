@@ -4,6 +4,9 @@ import {
   removeInProgress,
   toggleStaredTask,
   toggleDoneTask,
+  getInProgressList,
+  getCompletedList,
+  updateHeaderQuantity,
 } from "./list.js";
 import { formateDueDate } from "./utilities/dayformat.js";
 
@@ -23,8 +26,8 @@ function renderInProgressGrid() {
 
   todoList.sort((a, b) => b.star - a.star);
 
-  let inProgressList = todoList.filter((task) => !task.complete);
-  let completedList = todoList.filter((task) => task.complete);
+  let inProgressList = getInProgressList();
+  let completedList = getCompletedList();
 
   inProgressList.forEach((task) => {
     const dueDate = formateDueDate(task.dueDate);
@@ -96,6 +99,8 @@ function renderInProgressGrid() {
   });
 
   document.querySelector(".js-complete-grid").innerHTML = completedHTML;
+
+  updateHeaderQuantity();
 
   document.querySelectorAll(".js-delete").forEach((button) => {
     button.addEventListener("click", () => {
