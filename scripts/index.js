@@ -7,6 +7,9 @@ import {
   getInProgressList,
   getCompletedList,
   updateHeaderQuantity,
+  setSortBy,
+  saveSortingOptionsToStorage,
+  sortTask,
 } from "./list.js";
 import { formateDueDate } from "./utilities/dayformat.js";
 
@@ -22,19 +25,21 @@ const newTaskForm = document.querySelector(".new-task-form");
 newTaskForm.addEventListener("submit", (event) => {
   event.preventDefault();
   addNewTask();
-  renderInProgressGrid();
+  renderPage();
 });
 
-renderInProgressGrid();
+renderPage();
 
-function renderInProgressGrid() {
+function renderPage() {
   let inProgressHTML = "";
   let completedHTML = "";
 
-  todoList.sort((a, b) => b.star - a.star);
+  // todoList.sort((a, b) => b.star - a.star);
 
   let inProgressList = getInProgressList();
   let completedList = getCompletedList();
+
+  sortTask(inProgressList, "inProgress");
 
   inProgressList.forEach((task) => {
     const dueDate = formateDueDate(task.dueDate);
@@ -113,7 +118,7 @@ function renderInProgressGrid() {
     button.addEventListener("click", () => {
       const { id } = button.dataset;
       removeInProgress(id);
-      renderInProgressGrid();
+      renderPage();
     });
   });
 
@@ -121,7 +126,7 @@ function renderInProgressGrid() {
     button.addEventListener("click", () => {
       const { id } = button.dataset;
       toggleStaredTask(id);
-      renderInProgressGrid();
+      renderPage();
     });
   });
 
@@ -129,7 +134,16 @@ function renderInProgressGrid() {
     button.addEventListener("click", () => {
       const { id } = button.dataset;
       toggleDoneTask(id);
-      renderInProgressGrid();
+      renderPage();
     });
   });
 }
+
+const inProgressSort = document.getElementById("in-progress-sort");
+
+inProgressSort.addEventListener("change", (event) => {
+  const selectedOption = event.target.options[event.target.selectedIndex].value;
+  setSortBy(selectedOption, "inProgress");
+  saveSortingOptionsToStorage();
+  renderPage();
+});

@@ -87,3 +87,37 @@ export function getInProgressList() {
 export function getCompletedList() {
   return todoList.filter((task) => task.complete);
 }
+export function setSortBy(selectedOption, list) {
+  sortingOptions[list].sortBy = selectedOption;
+}
+export function sortTask(listArray, listName) {
+  listArray.sort((a, b) => {
+    if (a.star && !b.star) {
+      return -1;
+    }
+    if (b.star && !a.star) {
+      return 1;
+    }
+    if (sortingOptions[listName].sortBy === "date") {
+      return new Date(b.dueDate) - new Date(a.dueDate);
+    }
+    return b[sortingOptions[listName].sortBy].localeCompare(
+      a[sortingOptions[listName].sortBy]
+    );
+  });
+}
+export const sortingOptions = JSON.parse(
+  localStorage.getItem("sortingOptions")
+) || {
+  inProgress: {
+    sortBy: "default",
+    order: "desc",
+  },
+  complete: {
+    sortBy: "default",
+    order: "desc",
+  },
+};
+export function saveSortingOptionsToStorage() {
+  localStorage.setItem("sortingOptions", JSON.stringify(sortingOptions));
+}
