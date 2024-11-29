@@ -33,7 +33,7 @@ body {
   justify-content: space-between;
 }
 .stared-container {
-  border: solid 4px rgba(147, 96, 123, 0.8);
+  box-shadow: inset 0 0 0 4px var(--darkpink);
 }
 .todo-info {
   display: flex;

@@ -6,6 +6,7 @@ export let todoList = JSON.parse(localStorage.getItem("todoList")) || [
     dueDate: "2024-11-26T11:00",
     author: "SI",
     star: false,
+    complete: false,
   },
   {
     id: "542aca79-85f7-4f49-8984-1b853c5acaaf",
@@ -14,6 +15,7 @@ export let todoList = JSON.parse(localStorage.getItem("todoList")) || [
     dueDate: "2024-11-26T11:00",
     author: "SI",
     star: false,
+    complete: false,
   },
   {
     id: "d971e0be-f071-486c-9271-23bdff6dc7dd",
@@ -22,6 +24,7 @@ export let todoList = JSON.parse(localStorage.getItem("todoList")) || [
     dueDate: "2024-12-01T11:00",
     author: "SI",
     star: false,
+    complete: true,
   },
 ];
 
@@ -40,9 +43,14 @@ export function updateHeaderQuantity(section) {
     const element = document.getElementById("completed-quantity");
   } else return "quantity";
 }
-export function staredTask(id) {
+export function toggleStaredTask(id) {
   const staredTask = todoList.find((task) => task.id === id);
-  staredTask.star = true;
+  if (!staredTask.star) {
+    staredTask.star = true;
+  } else if (staredTask.star) {
+    staredTask.star = false;
+  }
+
   console.log(staredTask);
   saveTodoToStorage();
 }
