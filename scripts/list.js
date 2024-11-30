@@ -91,6 +91,7 @@ export function setSortBy(selectedOption, list) {
   sortingOptions[list].sortBy = selectedOption;
 }
 export function sortTask(listArray, listName) {
+  if (!sortingOptions[listName].sortBy) return;
   listArray.sort((a, b) => {
     if (a.star && !b.star) {
       return -1;
@@ -110,14 +111,34 @@ export const sortingOptions = JSON.parse(
   localStorage.getItem("sortingOptions")
 ) || {
   inProgress: {
-    sortBy: "default",
+    sortBy: "",
     order: "desc",
   },
-  complete: {
-    sortBy: "default",
+  completed: {
+    sortBy: "",
     order: "desc",
   },
 };
 export function saveSortingOptionsToStorage() {
   localStorage.setItem("sortingOptions", JSON.stringify(sortingOptions));
+}
+
+export function updateSortBySelection() {
+  const inProgressSort = document.getElementById("in-progress-sort");
+  const completedSort = document.getElementById("completed-sort");
+
+  const inProgressOptions = inProgressSort.options;
+  const completedOptions = completedSort.options;
+
+  setSeletedOption(inProgressOptions, "inProgress");
+  setSeletedOption(completedOptions, "completed");
+}
+
+function setSeletedOption(list, listName) {
+  for (let i = 0; i < list.length; i++) {
+    list[i].removeAttribute("selected");
+    if (list[i].value === sortingOptions[listName].sortBy) {
+      list[i].setAttribute("selected", "selected");
+    }
+  }
 }

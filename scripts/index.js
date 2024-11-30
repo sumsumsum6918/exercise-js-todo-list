@@ -10,6 +10,7 @@ import {
   setSortBy,
   saveSortingOptionsToStorage,
   sortTask,
+  updateSortBySelection,
 } from "./list.js";
 import { formateDueDate } from "./utilities/dayformat.js";
 
@@ -33,8 +34,6 @@ renderPage();
 function renderPage() {
   let inProgressHTML = "";
   let completedHTML = "";
-
-  // todoList.sort((a, b) => b.star - a.star);
 
   let inProgressList = getInProgressList();
   let completedList = getCompletedList();
@@ -113,6 +112,7 @@ function renderPage() {
   document.querySelector(".js-complete-grid").innerHTML = completedHTML;
 
   updateHeaderQuantity();
+  updateSortBySelection();
 
   document.querySelectorAll(".js-delete").forEach((button) => {
     button.addEventListener("click", () => {
@@ -142,8 +142,18 @@ function renderPage() {
 const inProgressSort = document.getElementById("in-progress-sort");
 
 inProgressSort.addEventListener("change", (event) => {
+  sortingListener(event, "inProgress");
+});
+
+const completedSort = document.getElementById("completed-sort");
+
+completedSort.addEventListener("change", (event) => {
+  sortingListener(event, "completed");
+});
+
+function sortingListener(event, listName) {
   const selectedOption = event.target.options[event.target.selectedIndex].value;
-  setSortBy(selectedOption, "inProgress");
+  setSortBy(selectedOption, listName);
   saveSortingOptionsToStorage();
   renderPage();
-});
+}
