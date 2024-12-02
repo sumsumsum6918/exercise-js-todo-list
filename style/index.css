@@ -23,7 +23,7 @@ body {
   margin-bottom: 1.5rem;
 }
 .todo-container {
-  min-width: 360px;
+  min-width: 300px;
   background-color: white;
   padding: 1rem 1.5rem;
   border-radius: 8px;
@@ -121,4 +121,20 @@ option {
 }
 .disable {
   font-weight: 500;
+}
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+  .todo-list-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 700px) {
+  .todo-list-grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .todo-list-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

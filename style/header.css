@@ -97,3 +97,9 @@ textarea {
 .hide {
   display: none;
 }
+@media screen and (max-width: 800px) {
+  .new-task-form,
+  .edit-task-form {
+    width: 90%;
+  }
+}
