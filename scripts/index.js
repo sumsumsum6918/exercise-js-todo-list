@@ -1,6 +1,7 @@
 import {
   todoList,
   addNewTask,
+  editTask,
   removeInProgress,
   toggleStaredTask,
   toggleDoneTask,
@@ -24,7 +25,6 @@ newTaskButton.addEventListener("click", () => {
 const newTaskForm = document.querySelector(".new-task-form");
 
 newTaskForm.addEventListener("submit", (event) => {
-  event.preventDefault();
   addNewTask();
   renderPage();
 });
@@ -52,7 +52,8 @@ function renderPage() {
               <span class="size-18 material-symbols-outlined star-button js-star 
               ${task.star ? "stared-star" : ""}
               " data-id="${task.id}"> star </span>
-              <span class="size-18 material-symbols-outlined"> edit </span>
+              <span class="size-18 material-symbols-outlined js-edit"
+              data-id="${task.id}"> edit </span>
               <span class="size-18 material-symbols-outlined js-delete" data-id="${
                 task.id
               }"> delete </span>
@@ -137,7 +138,17 @@ function renderPage() {
       renderPage();
     });
   });
+
+  document.querySelectorAll(".js-edit").forEach((button) => {
+    button.addEventListener("click", () => {
+      const { id } = button.dataset;
+      editTask(id);
+      renderPage();
+    });
+  });
 }
+
+//#region sorting
 
 const inProgressSort = document.getElementById("in-progress-sort");
 
@@ -157,3 +168,4 @@ function sortingListener(event, listName) {
   saveSortingOptionsToStorage();
   renderPage();
 }
+//#endregion

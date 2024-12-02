@@ -89,6 +89,46 @@
           </select>
         </div>
       </div>
+      <div class="edit-task-container js-edit-task-container hide">
+        <form class="edit-task-form">
+          <p>Edit task</p>
+          <label for="edit-task-title"> Task Title</label>
+          <input
+            required
+            type="text"
+            name="edit-task-title"
+            id="edit-task-title"
+          />
+          <label for="edit-task-description">Description</label>
+          <textarea
+            type="text"
+            name="edit-task-description"
+            id="edit-task-description"
+          ></textarea>
+          <div class="date-and-author-container">
+            <div>
+              <label for="edit-task-date">Date & Time</label>
+              <input
+                type="datetime-local"
+                name="edit-task-date"
+                id="edit-task-date"
+                required
+              />
+            </div>
+            <div class="edit-author">
+              <label for="edit-task-author">Author Initials</label>
+              <input
+                class="initial-input"
+                type="text"
+                name="edit-task-author"
+                id="edit-task-author"
+                required
+              />
+            </div>
+          </div>
+          <button class="edit-task-button" type="submit">Confirm</button>
+        </form>
+      </div>
       <div class="todo-list-grid js-in-progress-grid"></div>
     </section>
 

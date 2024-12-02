@@ -27,20 +27,23 @@ h1 {
   font-variation-settings: "OPSZ" 32;
 }
 
-.new-task-container {
+.new-task-container,
+.edit-task-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 1.5rem;
 }
-.new-task-form {
+.new-task-form,
+.edit-task-form {
   background-color: white;
   padding: 1.5rem 2rem;
   border-radius: 0.5rem;
   box-shadow: -5px 5px 2px rgb(0, 0, 0, 0.2);
   width: 50%;
 }
-.new-task-container p {
+.new-task-container p,
+.edit-task-container p {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
@@ -59,7 +62,8 @@ textarea {
 textarea {
   resize: none;
 }
-#task-date {
+#task-date,
+#edit-task-date {
   display: block;
   width: auto;
 }
@@ -68,14 +72,16 @@ textarea {
   display: flex;
   gap: 40px;
 }
-.new-author label {
+.new-author label,
+.edit-author label {
   display: block;
 }
 .initial-input {
   width: 4rem;
 }
 
-.add-task-button {
+.add-task-button,
+.edit-task-button {
   padding: 0.5rem 2rem;
   border: none;
   border-radius: 8px;

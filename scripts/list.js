@@ -142,3 +142,29 @@ function setSeletedOption(list, listName) {
     }
   }
 }
+
+export function editTask(id) {
+  const targetTask = todoList.find((task) => task.id === id);
+  const formContainer = document.querySelector(".js-edit-task-container");
+  if (formContainer.classList.contains("hide")) {
+    formContainer.classList.remove("hide");
+  }
+  document.getElementById("edit-task-title").value = targetTask.title;
+  document.getElementById("edit-task-description").value =
+    targetTask.description;
+  document.getElementById("edit-task-date").value = targetTask.dueDate;
+  document.getElementById("edit-task-author").value = targetTask.author;
+
+  document
+    .querySelector(".edit-task-form")
+    .addEventListener("submit", (event) => {
+      targetTask.title = document.getElementById("edit-task-title").value;
+
+      targetTask.description = document.getElementById(
+        "edit-task-description"
+      ).value;
+      targetTask.dueDate = document.getElementById("edit-task-date").value;
+      targetTask.author = document.getElementById("edit-task-author").value;
+      saveTodoToStorage();
+    });
+}
